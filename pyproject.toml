@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "langtree"
+version = "0.1.0"
+description = "A minimalist python library for LLMs. Our mission is to reduce the mental overhead of developers interacting with language models. This perhead required to interact with language models without making you leave your framework of choice."
+authors = ["EntropyAI"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

@@ -26,5 +26,10 @@ We offer a simple abstraction to record analytics on *any* chain **(Including La
 We currently only have recording to JSON but expect to see more by 08/11/23
 
 ### Providers
-Models: We currently support OpenAI and Huggingface via the OpenAI and EasyLLM libraries respectively.
+Models: We currently support OpenAI.
+
+## Roadmap
+Function Calling: We plan to support function calls in the VERY near future.
+Models: To support Azure, Huggingface (local and remote), Anthropic and Cohere
 VectorDBs: Currently in development. Again we promise to maintain minimal levels of abstraction.
+Recording: We are in the process of implementing S3, Planetscale, and more!

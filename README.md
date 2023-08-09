@@ -14,7 +14,7 @@ This means the following capabilities are **trivial**:
      It's so minimal that the underlying api's are almost identical to those exposed by our integrations.
      For example, the `messages` field on the OpenAIChat object is the exact field that is passed to the underlying api.
 
-2. **No Magic**: We believe that magic is great until it breaks. This is why we are commited to keeping the core library under 200 LOC. Forever. No side effects either!
+2. **No Magic**: We believe that magic is great until it breaks. This is why we are commited to keeping the core library under 200 LOC. Forever. No built in side effects either!
 3. **Back Compatibility**: Expect Langtree to be extremely stable. Its so flexible that it *actually updates itself* when integrations change.
 4. **Langchain Interoperable**: Langtree can be used *with* Langchain. Although we are opinionated about Langtree, **Langchain offers a LOT of value**.
 

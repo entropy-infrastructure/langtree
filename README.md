@@ -1,5 +1,8 @@
 # Welcome to Langtree!
 
+To install: `pip install langtree`
+api reference: langtree.readthedocs.io
+
 ## What is Langtree
 
 Langtree is a micro framework for building natively parallel LLM chains. Our goal is to keep the core of this repo under 100 LOC (not including test cases).

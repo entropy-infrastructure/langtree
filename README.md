@@ -2,7 +2,7 @@
 
 To install: `pip install langtree`
 
-Read the docs [here](langtree.readthedocs.io)
+Read the docs [here](https://langtree.readthedocs.io)
 
 ## What is Langtree
 

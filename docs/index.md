@@ -4,7 +4,8 @@
 ```{toctree}
 :maxdepth: 2
 
-Examples <examples/index.md>
+Intro Examples <intro_examples/index.md>
+Operators <operator_examples/index.md>
 autoapi/index
 changelog.md
 contributing.md

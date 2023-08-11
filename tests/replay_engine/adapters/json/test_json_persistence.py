@@ -1,16 +1,16 @@
 import unittest
 import os
-from tinychain.replay_engine import Chain
-from tinychain.replay_engine.adapters.json import JSONStore
-from tinychain.replay_engine.test_utils import flatten_records
+from langtree.replay_engine import ChainRecorder
+from langtree.replay_engine.adapters.json import JSONStore
+from tests.replay_engine.test_utils import flatten_records
 
 
-@Chain.record()
+@ChainRecorder.record()
 def add(x, y):
     return x + y
 
 
-@Chain.record("test", "test2")
+@ChainRecorder.record("test", "test2")
 def multiply(x, y):
     return x * y
 
@@ -27,10 +27,10 @@ class TestJSONStore(unittest.TestCase):
         """
         Tests reading all chains from the data storage.
         """
-        with Chain("chain1", persistence_strategy=self.data_storage):
+        with ChainRecorder("chain1", persistence_strategy=self.data_storage):
             add(1, 2)
 
-        with Chain("chain2", persistence_strategy=self.data_storage):
+        with ChainRecorder("chain2", persistence_strategy=self.data_storage):
             multiply(2, 3)
 
         all_data = self.data_storage.read()
@@ -43,10 +43,10 @@ class TestJSONStore(unittest.TestCase):
         """
         Tests reading a specific chain from the data storage.
         """
-        with Chain("chain1", persistence_strategy=self.data_storage):
+        with ChainRecorder("chain1", persistence_strategy=self.data_storage):
             add(1, 2)
 
-        with Chain("chain2", persistence_strategy=self.data_storage):
+        with ChainRecorder("chain2", persistence_strategy=self.data_storage):
             multiply(2, 3)
 
         chain1_data = self.data_storage.read("chain1")
@@ -61,7 +61,7 @@ class TestJSONStore(unittest.TestCase):
         """
         Tests reading a non-existent chain from the data storage.
         """
-        with Chain("chain1", persistence_strategy=self.data_storage):
+        with ChainRecorder("chain1", persistence_strategy=self.data_storage):
             add(1, 2)
 
         non_existent_chain_data = self.data_storage.read("non_existent_chain")

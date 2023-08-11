@@ -2,7 +2,7 @@ import unittest
 import os
 from langtree.replay_engine.chain import ChainRecorder
 from langtree.replay_engine.adapters.json import JSONStore
-from langtree.replay_engine.test_utils import flatten_records
+from tests.replay_engine.test_utils import flatten_records
 
 
 @ChainRecorder.record()

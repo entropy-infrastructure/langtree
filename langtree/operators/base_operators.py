@@ -8,21 +8,12 @@ from langtree.core.operator import Operator, freeze
         2) Implementing the freezing present in Operator is not a great idea on a vector OP (way too much mental overhead for a developer, i.e. me)
 """
 
-
-def chainable(func):
-
-    def wrapper(**kws):
-        def wrapped(*args, **kwargs):
-            res = func(*args, **{**kws, **kwargs})
-            return res
-
-        return wrapped
-
-    return wrapper
-
 class Parallel:
     def __init__(self, operations):
-        self.operations = operations
+
+        self.operations = []
+        for operation in operations:
+            self.__iadd__(operation)
 
     def __iadd__(self, other):
         if isinstance(other, Sequential):
@@ -64,7 +55,10 @@ class Parallel:
 
 class Sequential:
     def __init__(self, operations):
-        self.operations = operations
+
+        self.operations = []
+        for operation in operations:
+            self.__iadd__(operation)
 
     def __iadd__(self, other):
         if isinstance(other, Sequential):
@@ -83,13 +77,16 @@ class Sequential:
 
     def __call__(self, *args, **kwargs):
 
-        output = self.operations[0](*args, **kwargs)
-        for operation in self.operations[1:]:
-
-            output = operation(*output)
+        output = args
+        for i, operation in enumerate(self.operations):
 
             if not isinstance(output, tuple):
                 output = tuple([output])
+
+            if i == 0:
+                output = operation(*output, **kwargs)
+            else:
+                output = operation(*output)
 
         return output
 
@@ -97,11 +94,11 @@ class Sequential:
         operations = self.operations
 
         if isinstance(other, Sequential):
-            return Sequential(operations.extend(other.operations))
+            return Sequential(operations + other.operations)
         elif isinstance(other, Parallel):
-            return Sequential(operations.append(other))
+            return Sequential(operations + [other])
         elif isinstance(other, Operator):
-            return Sequential(operations.append(other))
+            return Sequential(operations + [other])
         else:
             raise ValueError(
                 f"{type(other)} is not usable with type:{type(self)}. This class can only add Operators (SequentialOperator, ParallelOperator, Operator)")

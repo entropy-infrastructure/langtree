@@ -47,8 +47,11 @@ def chainable(func):
     Returns:
         callable: The chainable function.
     """
-    def wrapper(**kws):
-        return freeze(func, **kws)
+    def wrapper(*args, **kws):
+        op = Operator(func)
+        op.freeze_call(**kws)
+        return op
+
     return wrapper
 
 class Operator(object):

@@ -1,7 +1,8 @@
 # Welcome to Langtree!
 
 To install: `pip install langtree`
-api reference: langtree.readthedocs.io
+
+api reference: [langtree.readthedocs.io]
 
 ## What is Langtree
 

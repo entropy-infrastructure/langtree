@@ -1,5 +1,6 @@
 import unittest
-from langtree.core import Operator, chainable
+from langtree.core import Operator
+from langtree.operators import chainable
 
 
 class TestOperator(unittest.TestCase):

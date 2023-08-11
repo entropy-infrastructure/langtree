@@ -1,3 +1,5 @@
+jupyter
 myst-nb
+myst-parser
 sphinx-autoapi
-sphinx-rtd-theme
+sphinx-press-theme

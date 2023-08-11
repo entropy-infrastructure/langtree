@@ -2,8 +2,8 @@
 
 # You can set these variables from the command line.
 SPHINXOPTS    =
-SPHINXBUILD   = python -msphinx
-SPHINXPROJ    = langtree
+SPHINXBUILD   = python3 -m sphinx
+SPHINXPROJ    = Langtree
 SOURCEDIR     = .
 BUILDDIR      = _build
 

@@ -6,7 +6,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = u"langtree"
+project = u"Langtree"
 copyright = u"2023, EntropyAI"
 author = u"EntropyAI"
 
@@ -21,7 +21,7 @@ extensions = [
     "sphinx.ext.napoleon",
     "sphinx.ext.viewcode",
 ]
-autoapi_dirs = ["../src"]
+autoapi_dirs = ["../langtree"]
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
@@ -33,4 +33,9 @@ exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = "sphinx_rtd_theme"
+html_theme = "press"
+
+html_sidebars = {
+   '**': ['globaltoc.html']
+}
+

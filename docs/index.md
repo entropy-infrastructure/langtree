@@ -1,13 +1,15 @@
-```{include} ../README.md
-```
+# Home
 
+# Table Of Contents
 ```{toctree}
-:maxdepth: 1
-:hidden:
+:maxdepth: 2
 
-example.ipynb
+Examples <examples/index.md>
+autoapi/index
 changelog.md
 contributing.md
 conduct.md
-autoapi/index
+```
+
+```{include} ../README.md
 ```

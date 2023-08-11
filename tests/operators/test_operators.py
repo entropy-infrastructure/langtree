@@ -1,6 +1,6 @@
 import unittest
-from langtree.core import Operator, chainable
-from langtree.operators import Sequential, Parallel
+from langtree.core import Operator
+from langtree.operators import Sequential, Parallel, chainable
 
 class TestOperators(unittest.TestCase):
 

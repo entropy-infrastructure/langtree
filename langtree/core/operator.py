@@ -1,6 +1,7 @@
 
 import backoff
 
+
 def default_call(*args, **kwargs):
     """Default call function that returns the provided keyword arguments.
 
@@ -13,6 +14,7 @@ def default_call(*args, **kwargs):
     """
     return kwargs
 
+
 def default_parse(output):
     """Default parse function that returns the provided output without modifications.
 
@@ -23,6 +25,7 @@ def default_parse(output):
         The unmodified output.
     """
     return output
+
 
 def freeze(function, **top_kwargs):
     """Return a function with specific arguments frozen.
@@ -38,21 +41,6 @@ def freeze(function, **top_kwargs):
         return function(*args, **{**top_kwargs, **kwargs})
     return frozen
 
-def chainable(func):
-    """Decorator that makes a function chainable with its arguments.
-
-    Args:
-        func (callable): The function to make chainable.
-
-    Returns:
-        callable: The chainable function.
-    """
-    def wrapper(*args, **kws):
-        op = Operator(func)
-        op.freeze_call(**kws)
-        return op
-
-    return wrapper
 
 class Operator(object):
     """A class to represent and process custom call and parse operations."""

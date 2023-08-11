@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "langtree"
-version = "0.1.0"
+version = "0.1.1"
 description = "A minimalist python library for LLMs. Our mission is to reduce the mental overhead of developers interacting with language models. This perhead required to interact with language models without making you leave your framework of choice."
 authors = ["EntropyAI"]
 license = "MIT"
